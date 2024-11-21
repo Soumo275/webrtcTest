@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebRTC Video Chat</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <script defer src="app.js"></script>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <style>  
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    video {
+      width: 45%;
+      margin: 10px;
+      border: 2px solid #ccc;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    #controls {
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      background-color: #007BFF;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      margin: 5px;
+      width: 200px;
+    }
+    #chatBox {
+      margin-top: 20px;
+    }
+    #messages {
+      max-width: 600px;
+      margin: 10px auto;
+      text-align: left;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      height: 150px;
+      overflow-y: auto;
+    }
+    #chatInput {
+      width: 60%;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>WebRTC Video Chat</h1>
+  <div>
+    <video id="localVideo" autoplay muted></video>
+    <video id="remoteVideo" autoplay></video>
+  </div>
+  <div id="controls">
+    <input type="text" id="roomKeyInput" placeholder="Enter Room Key">
+    <button id="joinRoom">Join Room</button>
+    <button id="endCall" disabled>End Call</button>
+  </div>
+  <div id="chatBox">
+    <div id="messages"></div>
+    <input type="text" id="chatInput" placeholder="Type a message">
+    <button id="sendMessage">Send</button>
+  </div>
+</body>
+</html>
